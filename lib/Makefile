@@ -7,16 +7,16 @@ else
 endif
 
 
-default: matrix.so
+default: matrix_f.so
 
-matrix.so: matrix_transf.c matrix_oper.c
-	${CC} ${CFLAGS} -o matrix.so -shared matrix_transf.c matrix_oper.c
+matrix_f.so: matrix_transf_f.c matrix_oper_f.c
+	${CC} ${CFLAGS} -o matrix_f.so -shared matrix_transf_f.c matrix_oper_f.c
 
-matrix_transf.o: matrix_transf.c
-	${CC} ${CFLAGS} -o matrix_transf.o -c matrix_transf.c
+matrix_transf_f.o: matrix_transf_f.c
+	${CC} ${CFLAGS} -o matrix_transf_f.o -c matrix_transf_f.c
 
-matrix_oper.o: matrix_oper.c
-	${CC} ${CFLAGS} -o matrix_oper.o -c matrix_oper.c
+matrix_oper_f.o: matrix_oper_f.c
+	${CC} ${CFLAGS} -o matrix_oper_f.o -c matrix_oper_f.c
 
 clean:
-	rm matrix_oper.o matrix_transf.o matrix.so 
+	rm matrix_oper_f.o matrix_transf_f.o matrix_f.so 
