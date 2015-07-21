@@ -7,7 +7,7 @@ def printmatrix(X, m, n):
 	for i in range(0, m):
 		print(' '.join(str(x) for x in X[i*n:i*n+n]))
 
-#Cargando la librería compartida
+#Cargando la librerï¿½a compartida
 libmatrix = ctypes.CDLL("./matrix.so")
 
 #Comprobamos parametros
@@ -24,7 +24,7 @@ f1 = open(file1)
 for sizeline in f1.readline().strip().split():
 		size.append(int(sizeline))
 A = []
-for line in f1.read().strip():
+for line in f1:
 	for number in line.split():
 		A.append(int(number))
 c_A = (ctypes.c_int * len(A))(*A)
@@ -59,14 +59,14 @@ elif operacion == "Sum":
 	for sizeline in f2.readline().strip().split():
 		size.append(int(sizeline))
 	B = []
-	for line in f2.read().strip():
+	for line in f2:
 		for number in line.split():
 			B.append(int(number))
 	c_B = (ctypes.c_int * len(B))(*B)
 	f2.close()
 	
 	if size[0] != size[2] and size[1] != size[3]:
-		print("Las matrices tienen distintos tamaños, no se pueden sumar")
+		print("Las matrices tienen distintos tamaï¿½os, no se pueden sumar")
 		sys.exit()
 	
 	#Realizamos la operacion de suma
@@ -93,14 +93,14 @@ elif operacion == "Mult":
 	for sizeline in f2.readline().strip().split():
 		size.append(int(sizeline))
 	B = []
-	for line in f2.read().strip():
+	for line in f2:
 		for number in line.split():
 			B.append(int(number))
 	c_B = (ctypes.c_int * len(B))(*B)
 	f2.close()
 	
 	if size[1] != size[2]:
-		print("El número de columnas de la primera matriz no es el mismo que el numero de filas de la segunda matriz, no se pueden multiplicar")
+		print("El nï¿½mero de columnas de la primera matriz no es el mismo que el numero de filas de la segunda matriz, no se pueden multiplicar")
 		sys.exit()
 	
 	R = [0] * size[0] * size[3]
