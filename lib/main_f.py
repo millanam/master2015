@@ -3,11 +3,11 @@ import ctypes
 
 #Funcion para imprimir matriz
 def printmatrix(X, m, n):
-	print(m, n)
+	print m, n
 	for i in range(0, m):
 		print(' '.join(str(x) for x in X[i*n:i*n+n]))
 
-#Cargando la librería compartida
+#Cargando la libreria compartida
 libmatrix = ctypes.CDLL("./matrix_f.so")
 
 #Comprobamos parametros
@@ -66,7 +66,7 @@ elif operacion == "Sum":
 	f2.close()
 	
 	if size[0] != size[2] and size[1] != size[3]:
-		print("Las matrices tienen distintos tamaños, no se pueden sumar")
+		print("Las matrices tienen distintos tamanos, no se pueden sumar")
 		sys.exit()
 	
 	#Realizamos la operacion de suma
@@ -100,7 +100,7 @@ elif operacion == "Mult":
 	f2.close()
 	
 	if size[1] != size[2]:
-		print("El número de columnas de la primera matriz no es el mismo que el numero de filas de la segunda matriz, no se pueden multiplicar")
+		print("El numero de columnas de la primera matriz no es el mismo que el numero de filas de la segunda matriz, no se pueden multiplicar")
 		sys.exit()
 	
 	R = [0] * size[0] * size[3]
